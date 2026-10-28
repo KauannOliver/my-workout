@@ -1,0 +1,8 @@
+import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
+import { cn } from "@/lib/utils";
+
+export function Label({ children, htmlFor }: { children: React.ReactNode; htmlFor: string }) { return <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-200">{children}</label>; }
+export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElement>) { return <input className={cn("min-h-12 w-full rounded-2xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-green-600 focus:ring-4 focus:ring-green-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-green-950", className)} {...props} />; }
+export function Select({ className, ...props }: SelectHTMLAttributes<HTMLSelectElement>) { return <select className={cn("min-h-12 w-full rounded-2xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none focus:border-green-600 focus:ring-4 focus:ring-green-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white", className)} {...props} />; }
+export function Textarea({ className, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement>) { return <textarea className={cn("min-h-28 w-full rounded-2xl border border-slate-300 bg-white p-4 text-base outline-none focus:border-green-600 focus:ring-4 focus:ring-green-100 dark:border-slate-700 dark:bg-slate-950", className)} {...props} />; }
+export function FieldError({ children }: { children?: React.ReactNode }) { return children ? <p className="mt-1 text-sm text-red-600" role="alert">{children}</p> : null; }
